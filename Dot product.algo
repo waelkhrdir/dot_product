@@ -1,0 +1,43 @@
+PROCEDURE dot_product(v1,v2: ARRAY_OF FLOAT,VAR ps=0);
+
+VAR
+    n,m:INTEGER
+BEGIN
+    n:=v1.length-1
+    m:=v2.length-1
+
+
+IF (n<>m) THEN
+   write ('no')
+   ps:=NAN  
+   
+END_IF
+FOR i FROM 0 TO n STEP step  DO
+ps:=ps+v1[i]*v2[i]
+write (ps)
+
+END_FOR
+
+
+END
+ALGORITHM orthogonal
+VAR vector ARRAY_OF ARRAY
+n := vector.length-1
+ps:INTEGER
+BEGIN
+ FOR i FROM 0 TO n-1 STEP step  DO
+  
+
+FOR j FROM i+1 TO n STEP step  DO
+    dot_product(vector[i],vector[i],vector[j],vector[ps])
+
+    IF (ps=0) THEN
+        write (vector[i],"and",vector[j],"hathaka how ")
+    END_IF
+
+
+END_FOR
+
+
+ END_FOR
+END
